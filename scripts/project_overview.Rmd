@@ -1,0 +1,70 @@
+---
+title: "Project Description"
+author: "Joseph Caplinger"
+date: "April 20, 2017"
+output: 
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Overview
+
+I am working on my dataset and have (for the most part) cleaned the data and ready for analysis.  My projects primary goal is to peel back layers to identify predictors at different levels.  
+
+I have a dataset that has national data and the variables contain regions, states, and urban/rural status.  My goal is to break the large dataset up into 4 regional data sets and then down into 50  different data sets (give or take if it include Puerto Rico, Guam, ect).  And then from within each state I will take the 0/1 urban/rural identifier to identify poverty at that level.  I hope this makes sense.  If you can help me break this large dataset down into 4 regional datasets I can figure out the rest of it.
+
+## Methods
+
+I know that I want to run some classification algorithms on my data.  With that being said, I have listed below the few that I would be interested in but I am not dead set on anyone over the other so if either of you recommend trying something different let me know!
+
+- naïve Bayes
+
+- random forest
+
+- nearest neighbor algorithms
+
+- Bagging
+
+- Boosting
+
+I have also roughly penciled out the independent variables, moderators, and mediators that I am interested in.  
+
+- Independent Variables 
+
+    + Famsize (size of family)
+    + ownership(whether or not they own their home or rent)
+    + marst(marital status) 
+    + hcovany (Health insurance status)
+    + empstat(employment status)
+
+- Moderators 
+
+    + Sex
+    + Race
+    + Citizen
+    + Speakeng
+    + vetstat
+    + diffrem (disability or not)
+
+- Mediators
+
+    + Inctot (individual income total)
+    + ftotinc (family total income)
+    + utilities (average total of all utilities)
+    + incwelf (welfare income)
+    + rent (amount paid in rent)
+
+- Dependent Variable = 
+
+$$
+\mbox{Poverty} = 
+\begin{cases}
+1 \quad \mbox{ Individual is in poverty }\\\\
+2 \quad \mbox{ Individual is not in poverty }
+\end{cases}
+$$
+
