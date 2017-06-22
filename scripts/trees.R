@@ -118,7 +118,7 @@ roc.curve = function(thresh, print = FALSE) {
  return(vect)
 }
 
-threshold <- 0.0002
+threshold <- 0.25
 
 roc.curve(thresh = threshold, print = TRUE)
 
@@ -130,7 +130,8 @@ I = (((pred > threshold) & (truth==0)) | ((pred <= threshold) & (truth==1)))
       pch = 19,
       cex = .7,
       xlab = "",
-      ylab = "")
+      ylab = "",
+      las = 1)
  
  ROC.curve=Vectorize(roc.curve, vectorize.args = 'thresh')
 
