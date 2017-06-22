@@ -8,10 +8,25 @@ output: html_document
 ## Read data
 
 ```{r}
-dats0 <- read.csv('../data/Region0.csv')
-dats1 <- read.csv('../data/Region1.csv')
-dats2 <- read.csv('../data/Region2.csv')
-dats3 <- read.csv('../data/Region3.csv')
+
+dats <- list(
+r0 = read.csv('../data/Region0.csv'),
+r1 = read.csv('../data/Region1.csv'),
+r2 = read.csv('../data/Region2.csv'),
+r3 = read.csv('../data/Region3.csv'))
+
+cols <- c('EMPSTAT','OWNERSHP','MARST','HCOVANY','METRO')
+
+factor.cols <- function(x, cols) { 
+  
+  cols = which(colnames(x)%in%cols)
+  x[cols] <- lapply(x[cols] , factor)
+  return(x)
+  
+  }
+
+make.factors <- lapply(X = 0:3,
+                      FUN = function(x) factor.cols(dats[[x]], cols))
 
 dats0$EMPSTAT <- as.factor(dats0$EMPSTAT) 
 dats0$OWNERSHP <- as.factor(dats0$OWNERSHP) 
